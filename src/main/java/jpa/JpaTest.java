@@ -5,14 +5,16 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import domain.Person;
+
 public class JpaTest {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		EntityManagerFactory factory = Persistence
-				.createEntityManagerFactory("dev");
+		
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("mysql");
 		EntityManager manager = factory.createEntityManager();
 
 		EntityTransaction tx = manager.getTransaction();
@@ -20,11 +22,10 @@ public class JpaTest {
 		try {
 			
 			
-/*Person p = new Person();
+			Person p = new Person();
 			p.setName("martin");
-			manager.persist(p);*/
-	
-			
+			p.setFirstname("Dupont");
+			manager.persist(p);
 			
 		
 		} catch (Exception e) {
