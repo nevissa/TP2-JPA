@@ -6,12 +6,11 @@ import javax.persistence.Entity;
  * @author nevissa
  *
  */
-
+//Question 3 - mise en place du reste du model
 @Entity
 @DiscriminatorValue(value="chauffage")
-public class Heater  extends SmartDevices {
+public class Heater extends SmartDevices {
 	
-
 	private int volume;
 	/**
 	 * @return the volume

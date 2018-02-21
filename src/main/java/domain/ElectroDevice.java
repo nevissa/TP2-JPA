@@ -8,10 +8,10 @@ import javax.persistence.Entity;
 
 
 /**
- * @author nevissa
+ * @author diakite, nevissa
  *
  */
-
+//Question 3 - mise en place du reste du model
  @Entity
  @DiscriminatorValue(value="electronique")
 public class ElectroDevice extends SmartDevices{

@@ -15,9 +15,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
- * @author nevissa
+ * @author diakite, nevissa
  *
  */
+//Question 1 transformation de la classe personne en entité
 @Entity
 public class Person {
 

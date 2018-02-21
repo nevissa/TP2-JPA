@@ -1,13 +1,17 @@
 package domain;
 
 import javax.persistence.*;
+/**
+ * @author diakite, nevissa
+ *
+ */
 
 /*  cas heritage avec table par classe
  * @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
  * @DiscriminatorValue(value="smart")
    @Inheritance(strategy=InheritanceType.JOINED)
  * */
- 
+ //Heritage par single table avec des colonnes discriminatoires
 @DiscriminatorColumn(name="TYPE_DEVICE")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorValue(value="smart")

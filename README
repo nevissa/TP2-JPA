@@ -1,0 +1,17 @@
+Les objectifs de ce travail pratique sont les suivants :
+
+--- Comprendre les mécanismes de JPA
+--- Réaliser une application en utilisant JPA en se plaçant dans un cadre classique de développement sans serveur 
+	d’application au départ.
+
+	Question 1,2,3,4 et 5 : les reponses sont mise en commentaire dans le code java
+	
+	question 6 : 
+		-	lorsqu'on lance la requete sans utiliser le join fecth on recupere tous les departements de la base et lorsqu'on
+			désire recupérer les employés de chaque département on refait une requete pour chaque departement.
+			on denombre alors 5001 select
+		-	Et lorsqu'on utilise le join fetch on recupère en meme temps la liste des departements et les employés associés
+			on n'a plus besoin de réinteroger la base de données pour avoir les employés.
+			on denombre 1 select
+		
+		join fetch : permet un gain de temps et de performance.

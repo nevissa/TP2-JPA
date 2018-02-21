@@ -10,12 +10,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 /**
- * @author nevissa
+ * @author diakite, nevissa
  *
  */
+//Question 2 - association avec la class person
 @Entity
+
+//Question 5 Création d'une requete nommée
+@Table(name="home")
+@NamedQuery(name="findAllHome", query ="select h from Home h")
 public class Home {
 
 	public int id;
@@ -84,5 +91,10 @@ public class Home {
 	public void addHeater(Heater heater) {
 		this.heaters.add(heater);
 	}
-		
+	
+	@Override
+	public String toString() {
+		return  "Home [id =" + id + ", taille=" + taille + ", nombre de pièces =" + nbrpiece +"]";
+	}
+
 }
