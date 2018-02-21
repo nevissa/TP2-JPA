@@ -1,5 +1,6 @@
 package jpa;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -28,9 +29,13 @@ public class JpaTest {
 		EntityTransaction tx = managerr.getTransaction();
 		tx.begin();
 		try {
+			
+			//lancer des fonctions pour enrichir la base de données
 			test.createPerson();
 			test.listPerson();
 			test.createHome();
+			test.ListHomes();
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,20 +46,25 @@ public class JpaTest {
 		factory.close();
 	}
 	
-	private void createPerson() {
+	public void createPerson() {
 		
 		int NbrEnrgPerson = manager.createQuery("SELECT a From Person a",Person.class).getResultList().size();
 		
+		//Creer des personnes si le nombre d'enregistrement dans la table est inferieur ou eagle a 10
 		if(NbrEnrgPerson<=10) {
 			Person vama = new Person("Diakite","Hamed","hamed@gmail.fr"); 
 			Person gatien = new Person("Anoh","abbah","abbah@yahoo.fr");
+			
+			//Rendre les deux personnes amis
 			vama.addfriend(gatien);
+			//persister dans la base
 			manager.persist(vama);
 			manager.persist(gatien);
 		}
 	}
 	
-	private void listPerson() {
+	//utilisation de Criteria pour effectuer la requete de selection des personnes dans la table
+	public void listPerson() {
 		CriteriaBuilder builder=manager.getCriteriaBuilder();
 		CriteriaQuery<Person> query=builder.createQuery(Person.class);
 		Root<Person>personRoot=query.from(Person.class);
@@ -67,7 +77,7 @@ public class JpaTest {
 		}
 	}
 	
-	private void createHome() {
+	public void createHome() {
 
 		int NbrEnrgPerson = manager.createQuery("SELECT a From Home a",Home.class).getResultList().size();
 		if(NbrEnrgPerson<=10) {
@@ -75,7 +85,20 @@ public class JpaTest {
 			studio.setNbrpiece("10");
 			studio.setTaille("100");
 			manager.persist(studio);
+			
+			Home studio2 = new Home(); 
+			studio2.setNbrpiece("20");
+			studio2.setTaille("105");
+			manager.persist(studio2);
 		}
 	}
-
+	
+	public void ListHomes() {
+		//Utilisation du requete nommée question 5
+		List<Home> listhomes = manager.createNamedQuery("findAllHome").getResultList();
+		for(Home h : listhomes) {
+			
+			System.out.println(h.toString());
+		}
+	}
 }
