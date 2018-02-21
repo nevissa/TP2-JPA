@@ -3,69 +3,21 @@
  */
 package domain;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
 
 /**
- * @author Diakite
+ * @author nevissa
  *
  */
-@Entity
-public class ElectroDevice {
+
+ @Entity
+ @DiscriminatorValue(value="electronique")
+public class ElectroDevice extends SmartDevices{
 	
-	private int id;
 	private String type;
-	private String name;
-	private int puissance;
-
-	/**
-	 * @return the id
-	 */
-	@Id
-	@GeneratedValue
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name
-	 *            the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * @return the puissance
-	 */
-	public int getPuissance() {
-		return puissance;
-	}
-
-	/**
-	 * @param puissance
-	 *            the puissance to set
-	 */
-	public void setPuissance(int puissance) {
-		this.puissance = puissance;
-	}
-
+	/*
 
 	/**
 	 * @return the type
