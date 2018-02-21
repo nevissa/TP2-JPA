@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
- * @author Diakite
+ * @author nevissa
  *
  */
 @Entity
